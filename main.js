@@ -36,6 +36,7 @@ async function run() {
     await setUpFoundry(APP_PATH);
     await deleteCraFiles(APP_PATH);
     await copyReactFiles(APP_PATH);
+    await updatePackageJson(APP_PATH);
   } catch(err) {
     handleErrors(err);
   }
@@ -101,6 +102,26 @@ function copyReactFiles(appPath, sourcePath = FILES_PATH) {
   ];
   const args = ['-r', ...filesToCopy.map(file => resolve(sourcePath, file)), `${appPath}/src`];
   return spawn(cmd, args, { cwd: undefined });
+}
+
+async function updatePackageJson(appPath) {
+  const filepath = resolve(appPath, 'package.json');
+  const {default: packageJson} = await import(filepath);
+  const scripts = {
+    lint: 'foundry run eslint src/**/*.js',
+    'create-component': 'foundry run plop component'
+  };
+  const updatedPackageJson = {
+    ...packageJson,
+    scripts: {
+      ...packageJson.scripts,
+      ...scripts
+    }
+  }
+
+  const fileContent = JSON.stringify(updatedPackageJson, null, 2);
+
+  return asyncWriteFile(filepath, fileContent)
 }
 
 function handleErrors(err) {
