@@ -1,5 +1,10 @@
 import { resolve } from 'path'
+import { writeFile } from 'fs'
+import { promisify } from 'util'
+
 import spawn from './lib/spawn'
+
+const asyncWriteFile = promisify(writeFile);
 
 const FILES_PATH = resolve(__dirname, 'files');
 const WORKING_DIR = process.cwd();
@@ -7,7 +12,10 @@ const WORKING_DIR = process.cwd();
 const APP_NAME = process.argv[2]
 const APP_PATH = resolve(WORKING_DIR, APP_NAME);
 const DEPENDENCIES = [
-  '@sumup/circuit-ui'
+  '@sumup/circuit-ui',
+  'react-emotion',
+  'emotion',
+  'emotion-theming'
 ];
 
 const DEV_DEPENDENCIES = [
