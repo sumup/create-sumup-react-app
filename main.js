@@ -80,7 +80,6 @@ function setUpFoundry(appPath) {
     '--prettier','react',
     '--plop', 'react'
   ]
-  console.log(`${cmd} ${args.join(' ')}`)
   return spawn(cmd, args, { cwd: appPath})
 }
 
