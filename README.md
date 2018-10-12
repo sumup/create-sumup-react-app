@@ -1,24 +1,33 @@
-# create-sumup-react-app
+<div align="center">
+# :atom_symbol: create-sumup-react-app :atom_symbol:
+
+The easiest way to get started writing a React app with SumUp's standard frontend toolchain.
+</div>
 
 ## Prerequisites
 
-## Steps to start a new project
+- You should have Node.js installed at a version equal or above v9.10.0. If you cannot to that, see the Troubleshooting section for ways around this requirement.
+- At the moment this project reqires `yarn` to be installed on your system. Yarn is a package manager for JavaScript. You can read how to install the Yarn CLI in [their documentation](https://yarnpkg.com/en/docs/install).
 
-1. Run the following command, and pick the name of your project. It will create a new directory inside your current directory.
+## Setting up a new SumUp React project
 
-```javascript
-curl -L https://raw.githubusercontent.com/sumup/create-sumup-react-app/master/create-sumup-react-app.sh | bash -s -- {project-name}
-```
+1. Open your terminal.
+2. Navigate to the directory you would like to place your project in.
+3. Run `yarn create sumup-react-app {my-app}` where `my-app` is the name of your project.
 
-2. Edit `package.json` and amend the `test` script:
+This will create the folder `my-app` and initialize a new project inside. The project will be base on [`create-react-app`](https://github.com/facebook/create-react-app) and will use the SumUp's [`Circuit UI`](https://circuit.sumup.com/#/) component library and [Foundry](https://github.com/sumup/foundry) toolkit.
 
-```
-"test": "react-app-rewired test --env=jsdom --transformIgnorePatterns \"node_modules/\\(?!\\(@sumup/circuit-ui\\)/\\)\"/g"
-```
+## Development workflow
 
-This is temporary ;)
+### Firing up the tools
 
-3. Start your app with `yarn start`
+### Adding a new component
+
+## Useful resources
+
+- The [docs](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents) for `create-react-app` have contain a lot of solutions for common problems when writing a React application.
+- Foundry [docs](https://github.com/sumup/foundry#table-of-contents).
+- Circuit UI [docs](https://circuit.sumup.com/#/) and [storybook](https://circuit.sumup.com/storybook/).
 
 ## Troubleshooting
 
