@@ -57,13 +57,13 @@ async function addDependencies({dependencies = DEPENDENCIES, devDepenencies = DE
   const cmd = 'yarn'
   const args = [
     'add',
-    dependencies
+    ...dependencies
   ]
 
   const devArgs = [
     'add',
     '--dev',
-    devDepenencies
+    ...devDepenencies
   ]
 
   await spawn(cmd, args, { cwd })
