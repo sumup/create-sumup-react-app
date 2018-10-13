@@ -11,7 +11,7 @@ import {
   injectGlobalStyles
 } from '@sumup/circuit-ui';
 
-import LogoIcon from './assets/logo.svg';
+import { ReactComponent as LogoIcon } from './assets/logo.svg';
 
 const { circuit } = themes;
 
