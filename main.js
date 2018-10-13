@@ -17,16 +17,16 @@ const DEPENDENCIES = [
   // CSS-in-JS 🚀
   'react-emotion',
   'emotion',
-  'emotion-theming',
-  // Testing 📏
-  'react-testing-library',
-  'jest-emotion',
-  'jest-dom'
+  'emotion-theming'
 ];
 
 const DEV_DEPENDENCIES = [
   // The toolkit 🛠
-  '@sumup/foundry'
+  '@sumup/foundry',
+  // Testing 📏
+  'react-testing-library',
+  'jest-emotion',
+  'jest-dom'
 ];
 
 if (!APP_NAME) {
