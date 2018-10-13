@@ -2,6 +2,9 @@
   "name": "create-sumup-react-app",
   "version": "1.0.0",
   "description": "Creates a ready for development React app using create-react-app.",
+  "scripts": {
+    "lint": "foundry run eslint ./**/*.js"
+  },
   "main": "index.js",
   "author": "Felix Jung <felix.jung@sumup.com>",
   "license": "MIT",
