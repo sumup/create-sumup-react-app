@@ -38,6 +38,7 @@ const Container = styled('header')`
   align-items: center;
   width: 100%;
   max-width: 450px;
+  min-height: 100vh;
   margin: 0 auto;
 `;
 
