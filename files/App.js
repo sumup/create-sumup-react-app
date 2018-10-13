@@ -1,5 +1,6 @@
 import React from 'react';
-import styled, { css } from 'react-emotion/macro';
+import styled from 'react-emotion/macro';
+import { css } from 'emotion/macro';
 import { ThemeProvider } from 'emotion-theming';
 import {
   Card,
