@@ -10,6 +10,6 @@
     "esm": "^3.0.84"
   },
   "devDependencies": {
-    "@sumup/foundry": "^0.0.10"
+    "@sumup/foundry": "^0.0.13"
   }
 }
