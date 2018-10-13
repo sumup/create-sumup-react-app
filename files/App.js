@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'react-emotion/macro';
-import { css } from 'emotion/macro';
+import styled from 'react-emotion/macro'
+import { css } from 'emotion/macro'
 import { ThemeProvider } from 'emotion-theming';
 import {
   Card,
@@ -10,18 +10,19 @@ import {
   theme as themes,
   injectGlobalStyles
 } from '@sumup/circuit-ui';
-
-import { ReactComponent as LogoIcon } from './assets/logo.svg';
+import { ReactComponent as LogoIcon} from './assets/logo.svg';
 
 const { circuit } = themes;
 
-const customGlobalStyles = css`
-  body {
-    background-color: ${circuit.colors.n100};
-  }
-`;
-
-injectGlobalStyles({ theme: circuit, custom: customGlobalStyles });
+// Inject Circuit UI's global styles into the DOM.
+injectGlobalStyles({
+  theme: circuit,
+  custom: css`
+    body {
+      background-color: ${circuit.colors.n100};
+    }
+  `
+});
 
 const Logo = styled(LogoIcon)`
   ${({ theme }) => css`
@@ -45,7 +46,7 @@ const Container = styled('header')`
 const App = () => (
   <ThemeProvider theme={circuit}>
     <Container>
-      <Logo />
+      <Logo data-testid="sumup-logo"/>
       <Card>
         <Heading size={Heading.KILO}>Welcome to SumUp React</Heading>
         <Text>
@@ -61,13 +62,16 @@ const App = () => (
             <code>react-scripts</code>)
           </li>
         </List>
-        <Text size={Text.GIGA} css={{ textAlign: 'center' }}>
+        <Text size={Text.GIGA} className={css`text-align: center;`}>
           Now go and build things!
           <br />
         </Text>
         <Text
           size={Text.GIGA}
-          css={{ textAlign: 'center', transform: 'scale3d(1.5, 1.5, 1)' }}
+          className={css`
+            text-align: center;
+            transform: scale3d(1.5, 1.5, 1);
+          `}
         >
           <span role="img" aria-label="Emojis for building things">
             🔨👩🏽‍💻👨🏼‍💻🚀
