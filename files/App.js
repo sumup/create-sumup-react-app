@@ -1,7 +1,14 @@
 import React from 'react';
-import styled, {css} from 'react-emotion/macro';
+import styled, { css } from 'react-emotion/macro';
 import { ThemeProvider } from 'emotion-theming';
-import { Card, Heading, List, Text, theme as themes, injectGlobalStyles } from '@sumup/circuit-ui';
+import {
+  Card,
+  Heading,
+  List,
+  Text,
+  theme as themes,
+  injectGlobalStyles
+} from '@sumup/circuit-ui';
 
 import LogoIcon from './assets/logo.svg';
 
@@ -39,28 +46,31 @@ const App = () => (
       <Logo />
       <Card>
         <Heading size={Heading.KILO}>Welcome to SumUp React</Heading>
-        <Text>This is a <code>create-react-app</code>-based
-        project featuring some SumUp-specific customizations:
+        <Text>
+          This is a <code>create-react-app</code>
+          -based project featuring some SumUp-specific customizations:
         </Text>
         <List size={List.MEGA}>
           <li>Circuit UI integration</li>
           <li>Emotion support (incl. babel plugin)</li>
           <li>Lodash support (incl. babel plugin)</li>
           <li>
-            SumUp ESLint and Prettier configuration
-            (in and outside <code>react-scripts</code>)
-           </li>
+            SumUp ESLint and Prettier configuration (in and outside{' '}
+            <code>react-scripts</code>)
+          </li>
         </List>
-        <Text size={Text.GIGA} css={{textAlign: 'center'}}>
-          Now go and build things!<br/>
-         </Text>
+        <Text size={Text.GIGA} css={{ textAlign: 'center' }}>
+          Now go and build things!
+          <br />
+        </Text>
         <Text
           size={Text.GIGA}
-          css={{textAlign: 'center', transform: 'scale3d(1.5, 1.5, 1)'}}>
+          css={{ textAlign: 'center', transform: 'scale3d(1.5, 1.5, 1)' }}
+        >
           <span role="img" aria-label="Emojis for building things">
             🔨👩🏽‍💻👨🏼‍💻🚀
-           </span>
-         </Text>
+          </span>
+        </Text>
       </Card>
     </Container>
   </ThemeProvider>
