@@ -10,7 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
-    "esm": "^3.0.84"
+    "esm": "^3.0.84",
+    "listr": "^0.14.2"
   },
   "devDependencies": {
     "@sumup/foundry": "^0.0.13"

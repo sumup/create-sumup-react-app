@@ -2,6 +2,8 @@ import { resolve } from 'path';
 import { writeFile } from 'fs';
 import { promisify } from 'util';
 
+import Listr from 'listr';
+
 import spawn from './lib/spawn';
 
 const asyncWriteFile = promisify(writeFile);
@@ -29,25 +31,47 @@ const DEV_DEPENDENCIES = [
   'jest-dom'
 ];
 
-if (!APP_NAME) {
-  // eslint-disable-next-line no-console
-  console.error('No app name specified. Exiting.');
-  process.exit(1);
-}
+const tasks = new Listr([
+  {
+    title: 'Running Create React App',
+    // task: () => runCreateReactApp(APP_NAME)
+    task: () => runCreateReactApp(APP_NAME)
+  },
+  {
+    title: 'Install additional dependencies',
+    task: () => addDependencies()
+  },
+  {
+    title: 'Customize experience',
+    task: () =>
+      new Listr([
+        {
+          title: 'Set up SumUp Foundry',
+          task: () => setUpFoundry(APP_PATH)
+        },
+        {
+          title: 'Replace Create React App files',
+          task: () =>
+            Promise.all([deleteCraFiles(APP_PATH), copyReactFiles(APP_PATH)])
+        },
+        {
+          title: 'Customize package.json',
+          task: () => updatePackageJson(APP_PATH)
+        }
+      ])
+  }
+]);
 
 run();
 
-async function run() {
-  try {
-    await runCreateReactApp(APP_NAME);
-    await addDependencies();
-    await setUpFoundry(APP_PATH);
-    await deleteCraFiles(APP_PATH);
-    await copyReactFiles(APP_PATH);
-    await updatePackageJson(APP_PATH);
-  } catch (err) {
-    handleErrors(err);
+function run() {
+  if (!APP_NAME) {
+    // eslint-disable-next-line no-console
+    console.error('Please pass a name for your app.');
+    console.error('For example, try "yarn create sumup-react-app my-app".');
   }
+
+  tasks.run().catch(handleErrors);
 }
 
 function runCreateReactApp(appName) {
@@ -71,7 +95,7 @@ async function addDependencies({
   return spawn(cmd, devArgs, { cwd });
 }
 
-function setUpFoundry(appPath) {
+function setUpFoundry(appPath, childProcessOptions = {}) {
   const cmd = 'npx';
   const args = [
     'foundry',
@@ -85,7 +109,7 @@ function setUpFoundry(appPath) {
     '--plop',
     'react'
   ];
-  return spawn(cmd, args, { cwd: appPath });
+  return spawn(cmd, args, { cwd: appPath, ...childProcessOptions });
 }
 
 function deleteCraFiles(appPath) {
@@ -140,7 +164,12 @@ async function updatePackageJson(appPath) {
 }
 
 function handleErrors(err) {
-  // eslint-disable-next-line no-console
-  console.log(err);
+  // console.log(err);
+  if (err.log) {
+    // eslint-disable-next-line no-console
+    console.error('\n');
+    console.error('Execution log');
+    console.log(err.log);
+  }
   process.exit(1);
 }
