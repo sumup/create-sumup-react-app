@@ -2,17 +2,18 @@ import { resolve } from 'path';
 import { writeFile } from 'fs';
 import { promisify } from 'util';
 
+import chalk from 'chalk';
 import Listr from 'listr';
 
 import spawn from './lib/spawn';
+import logger from './lib/logger';
 
 const asyncWriteFile = promisify(writeFile);
 
 const FILES_PATH = resolve(__dirname, 'files');
 const WORKING_DIR = process.cwd();
-
 const APP_NAME = process.argv[2];
-const APP_PATH = resolve(WORKING_DIR, APP_NAME);
+const APP_PATH = resolve(WORKING_DIR, APP_NAME || '');
 const DEPENDENCIES = [
   // Our beautiful component library 💄
   '@sumup/circuit-ui',
@@ -21,7 +22,6 @@ const DEPENDENCIES = [
   'emotion',
   'emotion-theming'
 ];
-
 const DEV_DEPENDENCIES = [
   // The toolkit 🛠
   '@sumup/foundry',
@@ -64,14 +64,35 @@ const tasks = new Listr([
 
 run();
 
-function run() {
+async function run() {
   if (!APP_NAME) {
-    // eslint-disable-next-line no-console
-    console.error('Please pass a name for your app.');
-    console.error('For example, try "yarn create sumup-react-app my-app".');
+    logger.error([
+      'Please pass a name for your app. For example, try',
+      '\n',
+      chalk`  yarn create sumup-react-app {italic.bold my-app}`,
+      '\n'
+    ]);
+    process.exit(1);
   }
 
-  tasks.run().catch(handleErrors);
+  logger.log(`
+🎉 Yay, you did it. Thanks for starting a fresh SumUp React app.
+🚀 Hang tight while we get you all set up.
+`);
+
+  await tasks.run().catch(handleErrors);
+
+  logger.log(`
+🏁 All done. Here's what to do next.
+1.) Check out your new project: "cd ${APP_NAME}".
+2.) Start your development process: "yarn start".
+
+If you have questions, check our docs or file an issue on Github.
+
+Docs: https://github.com/sumup/create-sumup-react-app/blob/master/README.md
+Issues: https://github.com/sumup/create-sumup-react-app/issues
+File issue: https://github.com/sumup/create-sumup-react-app/issues/new
+`);
 }
 
 function runCreateReactApp(appName) {
@@ -164,12 +185,10 @@ async function updatePackageJson(appPath) {
 }
 
 function handleErrors(err) {
-  // console.log(err);
   if (err.log) {
-    // eslint-disable-next-line no-console
-    console.error('\n');
-    console.error('Execution log');
-    console.log(err.log);
+    logger.error('Check the execution log below. 👇');
+    logger.log('\n');
+    logger.log(err.log);
   }
   process.exit(1);
 }
