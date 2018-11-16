@@ -4,7 +4,7 @@
  */
 import 'jest-dom/extend-expect';
 
-import { createMatchers, createSerializer } from 'jest-emotion'
+import { createMatchers, createSerializer } from 'jest-emotion';
 import * as emotion from 'emotion';
 
 /**
@@ -12,13 +12,13 @@ import * as emotion from 'emotion';
  * in a test.
  *
  * https://github.com/emotion-js/emotion/tree/master/packages/jest-emotion#tohavestylerule
- **/
-expect.extend(createMatchers(emotion))
+ * */
+expect.extend(createMatchers(emotion));
 
 /**
  * The serializer will make sure emotion generated styles
  * show up in snapshots.
  *
  * https://github.com/emotion-js/emotion/tree/master/packages/jest-emotion#snapshot-serializer
- **/
-expect.addSnapshotSerializer(createSerializer(emotion))
+ * */
+expect.addSnapshotSerializer(createSerializer(emotion));

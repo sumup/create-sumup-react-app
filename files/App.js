@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'react-emotion/macro'
-import { css } from 'emotion/macro'
+import styled from 'react-emotion/macro';
+import { css } from 'emotion/macro';
 import { ThemeProvider } from 'emotion-theming';
 import {
   Card,
@@ -10,7 +10,7 @@ import {
   theme as themes,
   injectGlobalStyles
 } from '@sumup/circuit-ui';
-import { ReactComponent as LogoIcon} from './assets/logo.svg';
+import { ReactComponent as LogoIcon } from './assets/logo.svg';
 
 const { circuit } = themes;
 
@@ -46,7 +46,7 @@ const Container = styled('header')`
 const App = () => (
   <ThemeProvider theme={circuit}>
     <Container>
-      <Logo data-testid="sumup-logo"/>
+      <Logo data-testid="sumup-logo" />
       <Card>
         <Heading size={Heading.KILO}>Welcome to SumUp React</Heading>
         <Text>
@@ -62,7 +62,12 @@ const App = () => (
             <code>react-scripts</code>)
           </li>
         </List>
-        <Text size={Text.GIGA} className={css`text-align: center;`}>
+        <Text
+          size={Text.GIGA}
+          className={css`
+            text-align: center;
+          `}
+        >
           Now go and build things!
           <br />
         </Text>
