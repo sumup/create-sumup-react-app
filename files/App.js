@@ -17,7 +17,13 @@ const { circuit } = themes;
 // Inject Circuit UI's global styles into the DOM.
 injectGlobalStyles({
   theme: circuit,
-  custom: css`
+  /**
+   * Customizations of the global styles are done like this.
+   * Note that we are passing in a template literal without
+   * using the css macro.
+   * */
+
+  custom: `
     body {
       background-color: ${circuit.colors.n100};
     }
