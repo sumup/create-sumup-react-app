@@ -1,6 +1,6 @@
-import React from 'react';
+/** @jsx jsx */
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import {
   Card,
@@ -61,7 +61,7 @@ const App = () => (
         </List>
         <Text
           size={Text.GIGA}
-          className={css`
+          css={css`
             text-align: center;
           `}
         >
@@ -70,7 +70,7 @@ const App = () => (
         </Text>
         <Text
           size={Text.GIGA}
-          className={css`
+          css={css`
             text-align: center;
             transform: scale3d(1.5, 1.5, 1);
           `}

@@ -46,7 +46,7 @@ const DEV_DEPENDENCIES = [
   // The toolkit 🛠
   '@sumup/foundry@beta',
   // Testing 📏
-  'react-testing-library@^8.0.0',
+  '@testing-library/react@^8.0.0',
   'jest-emotion@^10.0.11',
   'jest-dom@^3.4.0'
 ];
