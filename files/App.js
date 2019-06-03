@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'react-emotion/macro';
-import { css } from 'emotion/macro';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import {
   Card,
@@ -8,27 +8,11 @@ import {
   List,
   Text,
   theme as themes,
-  injectGlobalStyles
+  GlobalStyles
 } from '@sumup/circuit-ui';
 import { ReactComponent as LogoIcon } from './assets/logo.svg';
 
 const { circuit } = themes;
-
-// Inject Circuit UI's global styles into the DOM.
-injectGlobalStyles({
-  theme: circuit,
-  /**
-   * Customizations of the global styles are done like this.
-   * Note that we are passing in a template literal without
-   * using the css macro.
-   * */
-
-  custom: `
-    body {
-      background-color: ${circuit.colors.n100};
-    }
-  `
-});
 
 const Logo = styled(LogoIcon)`
   ${({ theme }) => css`
@@ -51,6 +35,13 @@ const Container = styled('header')`
 
 const App = () => (
   <ThemeProvider theme={circuit}>
+    <GlobalStyles
+      custom={`
+        body {
+          background-color: ${circuit.colors.n100};
+        }
+      `}
+    />
     <Container>
       <Logo data-testid="sumup-logo" />
       <Card>
