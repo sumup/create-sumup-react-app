@@ -18,11 +18,12 @@ const APP_NAME = process.argv[2];
 const APP_PATH = resolve(WORKING_DIR, APP_NAME || '');
 const DEPENDENCIES = [
   // Our beautiful component library 💄
-  '@sumup/circuit-ui',
+  '@sumup/circuit-ui@beta',
   // CSS-in-JS 🚀
-  'react-emotion@^9.0.0',
-  'emotion@^9.0.0',
-  'emotion-theming@^9.0.0'
+  '@emotion/core@^10.0.10',
+  'emotion-theming@^10.0.10',
+  '@emotion/styled@^10.0.10',
+  'jest-emotion@^10.0.10'
 ];
 const DEV_DEPENDENCIES = [
   // React ⚛️
