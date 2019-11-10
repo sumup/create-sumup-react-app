@@ -4,7 +4,7 @@
   "description": "Creates a ready for development React app using create-react-app.",
   "repository": "github:sumup/create-sumup-react-app",
   "scripts": {
-    "lint": "foundry run eslint ./**/*.js"
+    "lint": "foundry run eslint \"**/*.js\""
   },
   "bin": "bin",
   "main": "index.js",
@@ -17,6 +17,6 @@
     "listr-verbose-renderer": "^0.5.0"
   },
   "devDependencies": {
-    "@sumup/foundry": "beta"
+    "@sumup/foundry": "^1.0.0"
   }
 }
