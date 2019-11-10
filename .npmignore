@@ -1,4 +1,4 @@
-/assets
+.github/
 .babelrc.js
 .eslintignore
 .eslintrc.js
