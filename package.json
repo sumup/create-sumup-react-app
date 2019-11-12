@@ -6,6 +6,17 @@
   "scripts": {
     "lint": "foundry run eslint \"**/*.js\""
   },
+  "files": [
+    "/lib",
+    "/files",
+    "bin",
+    "index.js",
+    "main.js",
+    "yarn.lock",
+    "README",
+    "CODE_OF_CONDUCT",
+    "CONTRIBUTING"
+  ],
   "bin": "bin",
   "main": "index.js",
   "author": "Felix Jung <felix.jung@sumup.com>",
