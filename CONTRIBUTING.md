@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- **[Node.js v8+](https://nodejs.org/)**
+- **[Node.js v9.10+](https://nodejs.org/)**
 - **[`yarn`](https://yarnpkg.com/)**
 - **Signed and verified CLA**
 
