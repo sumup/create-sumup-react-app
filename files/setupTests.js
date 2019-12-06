@@ -2,7 +2,6 @@
  * Add custom Jest matchers for the DOM.
  * https://github.com/testing-library/jest-dom#readme
  */
-/* global expect */
 import '@testing-library/jest-dom/extend-expect';
 
 import serializer, { matchers } from 'jest-emotion';
@@ -12,7 +11,8 @@ import serializer, { matchers } from 'jest-emotion';
  * in a test.
  *
  * https://github.com/emotion-js/emotion/tree/master/packages/jest-emotion#custom-matchers
- * */
+ */
+// eslint-disable-next-line no-undef
 expect.extend(matchers);
 
 /**
@@ -20,5 +20,6 @@ expect.extend(matchers);
  * show up in snapshots.
  *
  * https://github.com/emotion-js/emotion/tree/master/packages/jest-emotion#snapshot-serializer
- * */
+ */
+// eslint-disable-next-line no-undef
 expect.addSnapshotSerializer(serializer);
