@@ -15,8 +15,6 @@
 
 /* eslint-disable no-process-exit */
 import { resolve } from 'path';
-import { writeFile } from 'fs';
-import { promisify } from 'util';
 
 import chalk from 'chalk';
 import Listr from 'listr';
@@ -25,8 +23,6 @@ import VerboseRenderer from 'listr-verbose-renderer';
 import spawn from './lib/spawn';
 import logger from './lib/logger';
 import * as util from './lib/util';
-
-const asyncWriteFile = promisify(writeFile);
 
 const FILES_PATH = resolve(__dirname, 'files');
 const WORKING_DIR = process.cwd();
@@ -79,10 +75,6 @@ const tasks = new Listr(
             title: 'Replace Create React App files',
             task: () =>
               Promise.all([deleteCraFiles(APP_PATH), copyReactFiles(APP_PATH)]),
-          },
-          {
-            title: 'Customize package.json',
-            task: () => updatePackageJson(APP_PATH),
           },
           {
             title: 'Update initial commit',
@@ -149,20 +141,22 @@ async function addDependencies({
 }
 
 function setUpFoundry(appPath, childProcessOptions = {}) {
-  const cmd = 'npx';
+  const cmd = 'yarn run';
   const args = [
     'foundry',
-    'bootstrap-config',
-    '--eslint',
-    'react',
-    '--babel',
-    'react',
-    '--prettier',
-    'base',
-    '--plop',
-    'react',
-    '--lint-staged',
-    '--husky',
+    'init',
+    '--presets',
+    'lint,release,templates,ci',
+    '--language',
+    'JavaScript',
+    '--environments',
+    'Browser',
+    '--frameworks',
+    'React,Emotion,Jest',
+    '--openSource',
+    'false',
+    '--publish',
+    'false',
   ];
   return spawn(cmd, args, { cwd: appPath, ...childProcessOptions });
 }
@@ -196,26 +190,6 @@ function copyReactFiles(appPath, sourcePath = FILES_PATH) {
     `${appPath}/src`,
   ];
   return spawn(cmd, args, { cwd: appPath });
-}
-
-async function updatePackageJson(appPath) {
-  const filepath = resolve(appPath, 'package.json');
-  const { default: packageJson } = await import(filepath);
-  const scripts = {
-    'lint': "foundry run eslint 'src/**/*.js'",
-    'create-component': 'foundry run plop component',
-  };
-  const updatedPackageJson = {
-    ...packageJson,
-    scripts: {
-      ...packageJson.scripts,
-      ...scripts,
-    },
-  };
-
-  const fileContent = JSON.stringify(updatedPackageJson, null, 2);
-
-  return asyncWriteFile(filepath, fileContent);
 }
 
 async function updateInitialCommit(appPath) {
