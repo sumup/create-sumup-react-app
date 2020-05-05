@@ -33,7 +33,7 @@ const APP_NAME = process.argv[2];
 const APP_PATH = resolve(WORKING_DIR, APP_NAME || '');
 const DEPENDENCIES = [
   // Our beautiful component library 💄
-  '@sumup/circuit-ui@^1.0.0',
+  '@sumup/circuit-ui@^1.8.0',
   // CSS-in-JS 🚀
   '@emotion/core@^10.0.10',
   'emotion-theming@^10.0.10',
@@ -43,11 +43,11 @@ const DEV_DEPENDENCIES = [
   // React ⚛️
   'prop-types',
   // The toolkit 🛠
-  '@sumup/foundry@^1.0.0',
+  '@sumup/foundry@^2.2.0',
   // Testing 📏
-  '@testing-library/react@^9.0.0',
+  '@testing-library/react@^10.0.0',
   'jest-emotion@^10.0.11',
-  '@testing-library/jest-dom@^4.2.0'
+  '@testing-library/jest-dom@^5.5.0'
 ];
 
 const listrOptions = util.isDebugging()
