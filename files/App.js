@@ -17,18 +17,11 @@
 import styled from '@emotion/styled';
 import { jsx, css, Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import {
-  Card,
-  Heading,
-  List,
-  Text,
-  theme as themes,
-  BaseStyles,
-} from '@sumup/circuit-ui';
+import { Card, Heading, List, Text, BaseStyles } from '@sumup/circuit-ui';
+
+import { light } from '@sumup/design-tokens';
 
 import { ReactComponent as LogoIcon } from './assets/logo.svg';
-
-const { circuit } = themes;
 
 const Logo = styled(LogoIcon)`
   ${({ theme }) => css`
@@ -51,12 +44,12 @@ const Container = styled('header')`
 
 const globalStyles = css`
   body {
-    background-color: ${circuit.colors.n100};
+    background-color: ${light.colors.n100};
   }
 `;
 
 const App = () => (
-  <ThemeProvider theme={circuit}>
+  <ThemeProvider theme={light}>
     <BaseStyles />
     <Global styles={globalStyles} />
     <Container>
