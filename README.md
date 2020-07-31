@@ -73,10 +73,10 @@ Writing tests is great. Tests are the second line of defence against bugs ending
 
 ## 📖 Useful resources
 
-- The [docs](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents) for `create-react-app` contain a lot of solutions for common problems when writing a React application.
+- The [docs](https://create-react-app.dev/docs/getting-started) for `create-react-app` contain a lot of solutions for common problems when writing a React application.
 - Foundry [docs](https://github.com/sumup/foundry#table-of-contents).
-- Circuit UI [docs](https://circuit.sumup.com/#/) and [storybook](https://circuit.sumup.com/storybook/).
-- The [README](https://github.com/kentcdodds/react-testing-library/blob/master/README.md#what-is-react-testing-library) for`react-testing-library`.
+- Circuit UI [docs](https://circuit.sumup.com/).
+- The [docs](https://testing-library.com/docs/react-testing-library/intro) for`react-testing-library`.
 
 ## 💁‍♀ Tips
 
