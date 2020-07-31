@@ -32,22 +32,26 @@ const WORKING_DIR = process.cwd();
 const APP_NAME = process.argv[2];
 const APP_PATH = resolve(WORKING_DIR, APP_NAME || '');
 const DEPENDENCIES = [
-  // Our beautiful component library 💄
-  '@sumup/circuit-ui@^1.8.0',
+  // Our beautiful component library and dependencies 💄
+  '@sumup/circuit-ui@^2.0.0',
+  '@sumup/collector@^1.0.0-alpha.1',
+  '@sumup/design-tokens@^1.0.3',
+  '@sumup/icons@^1.0.1',
+  '@sumup/intl@^1.1.2',
   // CSS-in-JS 🚀
-  '@emotion/core@^10.0.10',
+  '@emotion/core@^10.0.27',
   'emotion-theming@^10.0.10',
-  '@emotion/styled@^10.0.10',
+  '@emotion/styled@^10.0.17',
 ];
 const DEV_DEPENDENCIES = [
   // React ⚛️
   'prop-types',
   // The toolkit 🛠
-  '@sumup/foundry@^2.2.0',
+  '@sumup/foundry@^3.0.0',
   // Testing 📏
-  '@testing-library/react@^10.0.0',
+  '@testing-library/react@^10.4.0',
   'jest-emotion@^10.0.11',
-  '@testing-library/jest-dom@^5.5.0',
+  '@testing-library/jest-dom@^5.11.0',
 ];
 
 const listrOptions = util.isDebugging()
