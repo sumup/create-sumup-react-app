@@ -17,7 +17,6 @@
       "@testing-library/jest-dom": "^5.11.6",
       "web-vitals": "^1.0.1"
     },
-    "devDependencies": {},
     "scripts": {
       "create:component": "foundry run plop component",
       "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
