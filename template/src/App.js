@@ -1,18 +1,12 @@
-/** @jsx jsx */
-import styled from '@emotion/styled';
-import { jsx, css, Global } from '@emotion/core';
-import { ThemeProvider } from 'emotion-theming';
-import {
-  Card,
-  Heading,
-  List,
-  Text,
-  theme as themes,
-  BaseStyles,
-} from '@sumup/circuit-ui';
-import { ReactComponent as LogoIcon } from './assets/logo.svg';
+/** @jsxImportSource @emotion/core */
 
-const { circuit } = themes;
+import styled from '@emotion/styled';
+import { css, Global } from '@emotion/core';
+import { ThemeProvider } from 'emotion-theming';
+import { Card, Heading, List, Text, BaseStyles } from '@sumup/circuit-ui';
+import { light } from '@sumup/design-tokens';
+
+import { ReactComponent as LogoIcon } from './assets/logo.svg';
 
 const Logo = styled(LogoIcon)`
   ${({ theme }) => css`
@@ -33,14 +27,14 @@ const Container = styled('header')`
   margin: 0 auto;
 `;
 
-const globalStyles = css`
+const globalStyles = (theme) => css`
   body {
-    background-color: ${circuit.colors.n100};
+    background-color: ${theme.colors.n100};
   }
 `;
 
 const App = () => (
-  <ThemeProvider theme={circuit}>
+  <ThemeProvider theme={light}>
     <BaseStyles />
     <Global styles={globalStyles} />
     <Container>
