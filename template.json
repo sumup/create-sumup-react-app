@@ -22,7 +22,8 @@
       "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
       "lint:fix": "yarn lint --fix",
       "lint:watch": "onchange \"src/**/*\" -- yarn lint",
-      "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml"
+      "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
+      "postinstall": "npx renamer --find eslintrc --replace .eslintrc eslintrc.js"
     },
     "eslintConfig": {
       "extends": ".eslintrc.js"

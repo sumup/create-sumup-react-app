@@ -12,7 +12,7 @@ module.exports = require('@sumup/foundry/eslint')(
     },
     overrides: [
       {
-        files: ['template/src/**/*.js'],
+        files: ['template/**/*.js'],
         rules: {
           'notice/notice': 'off',
           'import/no-unresolved': 'off',
