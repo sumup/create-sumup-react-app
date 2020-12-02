@@ -47,7 +47,7 @@ To create a production build of your app, run `yarn build`. `react-scripts` will
 
 ### Adding a new component
 
-We try making adding new components as easy as possible. Run `yarn create:component YourComponentName` to launch the plop CLI exposed and configured by Foundry.
+We try to make adding new components as easy as possible. Run `yarn create:component YourComponentName` to launch the plop CLI exposed and configured by Foundry.
 
 <div align="center">
 
