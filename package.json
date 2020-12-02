@@ -16,6 +16,9 @@
   "devDependencies": {
     "license-checker": "^25.0.1"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
