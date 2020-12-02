@@ -47,7 +47,7 @@ for JavaScript React apps with SumUp's frontend stack.
 This will create the folder `my-app` and initialize a new project inside. The
 project will be based on
 [`create-react-app`](https://github.com/facebook/create-react-app) and will use
-the SumUp's [`Circuit UI`](https://circuit.sumup.com/) component library and
+SumUp's [`Circuit UI`](https://circuit.sumup.com/) component library and
 [Foundry](https://github.com/sumup/foundry) toolkit.
 
 ## 🛠 Development workflow
