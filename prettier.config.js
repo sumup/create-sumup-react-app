@@ -13,20 +13,4 @@
  * limitations under the License.
  */
 
-module.exports = require('@sumup/foundry/prettier')(
-  {},
-  {
-    quoteProps: 'consistent',
-    proseWrap: 'always',
-    overrides: [
-      {
-        files: '*.md',
-        options: { parser: 'markdown' },
-      },
-      {
-        files: '*.yaml',
-        options: { parser: 'yaml' },
-      },
-    ],
-  },
-);
+module.exports = require('@sumup/foundry/prettier')();
