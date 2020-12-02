@@ -88,7 +88,7 @@ import { render } from '../../test-utils';
 `create-react-app` has a debug mode. To output verbose logging to your console, add the `--debug` flag when creating your app. For example:
 
 ```
-yarn create @sumup/create-app my-debugging-app --debug
+yarn create react-app my-debugging-app --debug --template @sumup
 ```
 
 ### Broken build due to ESLint version
