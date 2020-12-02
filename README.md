@@ -1,9 +1,7 @@
 <div align="center">
 <h1>⚛️ @sumup/cra-template ⚛️</h1>
 
-A
-[create-react-app template](https://create-react-app.dev/docs/custom-templates)
-for JavaScript React apps with SumUp's frontend stack.
+A [create-react-app template](https://create-react-app.dev/docs/custom-templates) for JavaScript React apps with SumUp's frontend stack.
 
 </div>
 
@@ -29,45 +27,28 @@ for JavaScript React apps with SumUp's frontend stack.
 
 ## 💻 Prerequisites
 
-- You should have **[Node.js](https://nodejs.org/)** installed at a version
-  equal or above **`v14.0.0`**. If you cannot do that, see the
-  [Troubleshooting](#troubleshooting) section for ways around this requirement.
-- At the moment this project reqires **[`yarn`](https://classic.yarnpkg.com/)**
-  (classic) to be installed on your system. Yarn is a package manager for
-  JavaScript. You can read how to install the Yarn CLI in
-  [their documentation](https://classic.yarnpkg.com/en/docs/install).
+- You should have **[Node.js](https://nodejs.org/)** installed at a version equal or above **`v14.0.0`**. If you cannot do that, see the [Troubleshooting](#troubleshooting) section for ways around this requirement.
+- At the moment this project reqires **[`yarn`](https://classic.yarnpkg.com/)** (classic) to be installed on your system. Yarn is a package manager for JavaScript. You can read how to install the Yarn CLI in [their documentation](https://classic.yarnpkg.com/en/docs/install).
 
 ## ✨ Setting up a new JavaScript SumUp React project
 
 1. Open your terminal.
 2. Navigate to the directory you would like to place your project in.
-3. Run `yarn create react-app --template @sumup`, where `my-app` is the name of
-   your project.
+3. Run `yarn create react-app --template @sumup`, where `my-app` is the name of your project.
 
-This will create the folder `my-app` and initialize a new project inside. The
-project will be based on
-[`create-react-app`](https://github.com/facebook/create-react-app) and will use
-SumUp's [`Circuit UI`](https://circuit.sumup.com/) component library and
-[Foundry](https://github.com/sumup/foundry) toolkit.
+This will create the folder `my-app` and initialize a new project inside. The project will be based on [`create-react-app`](https://github.com/facebook/create-react-app) and will use SumUp's [`Circuit UI`](https://circuit.sumup.com/) component library and [Foundry](https://github.com/sumup/foundry) toolkit.
 
 ## 🛠 Development workflow
 
 ### Firing up the tools
 
-Run `yarn start` to start the development build. The app should automatically
-open in your browser. Changes you make to `src/App.js` should be visible on the
-page almost immediately.
+Run `yarn start` to start the development build. The app should automatically open in your browser. Changes you make to `src/App.js` should be visible on the page almost immediately.
 
-To create a production build of your app, run `yarn build`. `react-scripts` will
-create an optimized production build of your application inside the `build`
-folder of your project. It will also provide you with additional details on what
-to do with them.
+To create a production build of your app, run `yarn build`. `react-scripts` will create an optimized production build of your application inside the `build` folder of your project. It will also provide you with additional details on what to do with them.
 
 ### Adding a new component
 
-We try making adding new components as easy as possible. Run
-`yarn create:component YourComponentName` to launch the plop CLI exposed and
-configured by Foundry.
+We try making adding new components as easy as possible. Run `yarn create:component YourComponentName` to launch the plop CLI exposed and configured by Foundry.
 
 <div align="center">
 
@@ -82,32 +63,13 @@ A linter is a tool that checks your code for:
 - problems that will cause it to break when run, or
 - code style that violates a given set of rules the project is following.
 
-Linting serves as a first line of defence against evil bugs on production.​ Your
-project will be set up to use a version of the popular
-[ESLint](https://eslint.org) linter for JavaScript provided by Foundry. You can
-lint your code and apply automatic fixes by running `yarn lint`. Usually, your
-editor is able to integrate with ESLint. Check your options and refer to the
-[Tips](#setting-up-foundry-s-eslint-in-your-editor) section for details on how
-to make this work with Foundry.
+Linting serves as a first line of defence against evil bugs on production.​ Your project will be set up to use a version of the popular [ESLint](https://eslint.org) linter for JavaScript provided by Foundry. You can lint your code and apply automatic fixes by running `yarn lint`. Usually, your editor is able to integrate with ESLint. Check your options and refer to the [Tips](#setting-up-foundry-s-eslint-in-your-editor) section for details on how to make this work with Foundry.
 
 ### Writing tests
 
-Writing tests is great. Tests are the second line of defence against bugs ending
-up on production. By covering your application in unit and integration tests,
-you can be sure you did not break anything when, for example, shipping
-refactored code to production. Your new React project comes with testing built
-in. By running `yarn test` you will start the test runner,
-[Jest](https://jestjs.io/en/). As you add tests or make changes to your code,
-Jest will re-run tests and show you the results. The app will come with
-`react-testing-library` set up for writing UI tests for your React components.
-Check out `src/App.spec.js` for examples.
+Writing tests is great. Tests are the second line of defence against bugs ending up on production. By covering your application in unit and integration tests, you can be sure you did not break anything when, for example, shipping refactored code to production. Your new React project comes with testing built in. By running `yarn test` you will start the test runner, [Jest](https://jestjs.io/en/). As you add tests or make changes to your code, Jest will re-run tests and show you the results. The app will come with `react-testing-library` set up for writing UI tests for your React components. Check out `src/App.spec.js` for examples.
 
-For component tests we re-export a custom `render` method for
-`testing-library/react` from `src/test-utils`. The custom render method ensures
-components are wrapped in a `ThemeProvider` with the Circuit UI theme.
-Components created with the `create:component` script will have a `*.spec.js`
-file with the local `render` method imported. The import should look something
-like this.
+For component tests we re-export a custom `render` method for `testing-library/react` from `src/test-utils`. The custom render method ensures components are wrapped in a `ThemeProvider` with the Circuit UI theme. Components created with the `create:component` script will have a `*.spec.js` file with the local `render` method imported. The import should look something like this.
 
 ```js
 import { render } from '../../test-utils';
@@ -115,50 +77,16 @@ import { render } from '../../test-utils';
 
 ## 📖 Useful resources
 
-- The [docs](https://create-react-app.dev/docs/documentation-intro) for
-  `create-react-app` contain a lot of solutions for common problems when writing
-  a React application.
+- The [docs](https://create-react-app.dev/docs/documentation-intro) for `create-react-app` contain a lot of solutions for common problems when writing a React application.
 - Foundry [docs](https://github.com/sumup/foundry#table-of-contents).
-- Circuit UI [docs](https://circuit.sumup.com/#/) and
-  [storybook](https://circuit.sumup.com/storybook/).
-- The [README](https://testing-library.com/docs/react-testing-library/intro/)
-  for`react-testing-library`.
-
-## 💁‍♀ Tips
-
-### Setting up Foundry's ESLint in your editor
-
-The great strength of using a toolkit like Foundry is that you as a user do not
-have to care about developer dependencies like ESLint. Foundry manages and runs
-them for you via its `run` command. This, however, becomes a bit tricky when you
-want your text editor or IDE to run ESLint on your code as you edit it. To get
-this working, you need to tell your editor where to look for ESLint
-dependencies.
-
-Your mileage may vary depending on your text editor, but we try to keep a list
-of instructions here.
-
-#### Visual Studio Code
-
-The ESLint extension for VSCode has a `nodePath` setting. It allows you to add
-additional paths where the plugin should look when resolving dependencies. By
-setting it to the default path of Foundry in a project's `node_modules`, you
-will make VSCode work with Foundry's version of ESLint. Put the following line
-in your `settings.json`.
-
-```json
-"eslint.nodePath": "node_modules/@sumup/foundry/node_modules",
-```
-
-Don't worry, this won't break ESLint for other projects. It just gives VSCode
-another relative path where it can look for ESLint.
+- Circuit UI [docs](https://circuit.sumup.com/#/) and [storybook](https://circuit.sumup.com/storybook/).
+- The [README](https://testing-library.com/docs/react-testing-library/intro/) for`react-testing-library`.
 
 ## ⚠️ Troubleshooting
 
 ### Debug mode
 
-`create-react-app` has a debug mode. To output verbose logging to your console,
-add the `--debug` flag when creating your app. For example:
+`create-react-app` has a debug mode. To output verbose logging to your console, add the `--debug` flag when creating your app. For example:
 
 ```
 yarn create @sumup/create-app my-debugging-app --debug
@@ -166,23 +94,13 @@ yarn create @sumup/create-app my-debugging-app --debug
 
 ### Broken build due to ESLint version
 
-Because we depend on `create-react-app@latest` there is a chance that the
-shipped ESLint version in `react-scripts` is different from the one shipped with
-Foundry. Both projects are toolkits. When the build for your application fails,
-try to create your app with a version of CRA that ships the same version of
-ESLint as the Foundry's canary channel.
+Because we depend on `create-react-app@latest` there is a chance that the shipped ESLint version in `react-scripts` is different from the one shipped with Foundry. Both projects are toolkits. When the build for your application fails, try to create your app with a version of CRA that ships the same version of ESLint as the Foundry's canary channel.
 
 ## Code of conduct (CoC)
 
-We want to foster an inclusive and friendly community around our Open Source
-efforts. Like all SumUp Open Source projects, this project follows the
-Contributor Covenant Code of Conduct. Please,
-[read it and follow it](CODE_OF_CONDUCT.md).
+We want to foster an inclusive and friendly community around our Open Source efforts. Like all SumUp Open Source projects, this project follows the Contributor Covenant Code of Conduct. Please, [read it and follow it](CODE_OF_CONDUCT.md).
 
-If you feel another member of the community violated our CoC or you are
-experiencing problems participating in our community because of another
-individual's behavior, please get in touch with our maintainers. We will enforce
-the CoC.
+If you feel another member of the community violated our CoC or you are experiencing problems participating in our community because of another individual's behavior, please get in touch with our maintainers. We will enforce the CoC.
 
 ### Maintainers
 
@@ -207,8 +125,4 @@ the CoC.
     </g>
 </svg>
 
-It is our mission to make easy and fast card payments a reality across the
-_entire_ world. You can pay with SumUp in more than 30 countries, already. Our
-engineers work in Berlin, Cologne, Sofia and Sāo Paulo. They write code in
-JavaScript, Swift, Ruby, Go, Java, Erlang, Elixir and more. Want to come work
-with us? [Head to our careers page](https://sumup.com/careers) to find out more.
+It is our mission to make easy and fast card payments a reality across the _entire_ world. You can pay with SumUp in more than 30 countries, already. Our engineers work in Berlin, Cologne, Sofia and Sāo Paulo. They write code in JavaScript, Swift, Ruby, Go, Java, Erlang, Elixir and more. Want to come work with us? [Head to our careers page](https://sumup.com/careers) to find out more.
