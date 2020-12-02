@@ -31,7 +31,7 @@ A [create-react-app template](https://create-react-app.dev/docs/custom-templates
 
 1. Open your terminal.
 2. Navigate to the directory you would like to place your project in.
-3. Run `yarn create react-app --template @sumup`, where `my-app` is the name of your project.
+3. Run `yarn create react-app my-app --template @sumup`, where `my-app` is the name of your project.
 
 This will create the folder `my-app` and initialize a new project inside. The project will be based on [`create-react-app`](https://github.com/facebook/create-react-app) and will use SumUp's [`Circuit UI`](https://circuit.sumup.com/) component library and [Foundry](https://github.com/sumup/foundry) toolkit.
 
